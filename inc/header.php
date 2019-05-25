@@ -48,7 +48,7 @@
   		<h1>
         <a class="logo" href="./">
           <svg viewbox="0 0 64 64" class="logo-icon"><use xlink:href="#logo_icon"></use></svg>
-          <span class="logo-name">Personal Todo App</span>
+          <span class="logo-name">Personal Task App</span>
         </a>
       </h1>
 
