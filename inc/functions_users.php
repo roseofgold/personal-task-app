@@ -15,6 +15,7 @@ function getAllUsers()
         throw $e;
     }
 }
+
 function findUserByUsername($username)
 {
     global $db;
@@ -30,6 +31,7 @@ function findUserByUsername($username)
         throw $e;
     }
 }
+
 function findUserById($userId)
 {
     global $db;
@@ -45,12 +47,13 @@ function findUserById($userId)
         throw $e;
     }
 }
+
 function createUser($username, $password)
 {
     global $db;
 
     try {
-        $query = "INSERT INTO users (username, password, role_id) VALUES (:username, :password, 2)";
+        $query = "INSERT INTO users (username, password, role_id, created_at) VALUES (:username, :password, 2, datetime())";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':password', $password);
@@ -60,6 +63,7 @@ function createUser($username, $password)
         throw $e;
     }
 }
+
 function updatePassword($password, $userId)
 {
     global $db;

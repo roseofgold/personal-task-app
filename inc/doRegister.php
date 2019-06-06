@@ -16,7 +16,7 @@ if(!empty($user)){
     redirect('/register.php');
 }
 
-$hashed = password_hash($password,PASSWORD_DEFAULT);
+$hashed = password_hash($password, PASSWORD_DEFAULT);
 $user = createUser($username,$hashed);
 saveUserSession($user);
 $session->getFlashBag()->add('success','User Added');
