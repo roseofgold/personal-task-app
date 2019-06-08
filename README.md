@@ -7,10 +7,10 @@
 - [x] Users are able to log in
 - [ ] User information secutes with a JWT (bonus)
 - [x] Users are able to log out
-- [ ] JWT is made inaccessible
+- [ ] JWT is made inaccessible (bonus)
 - [x] Password is updated
-- [ ] New Tasks assigned to the appropriate user
-- [ ] Users can only see their own tasks
+- [x] New Tasks assigned to the appropriate user
+- [x] Users can only see their own tasks
 - [x] Authentication is required on specific pages
     - [x] task_list.php
     - [x] task.php

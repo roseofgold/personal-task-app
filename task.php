@@ -4,6 +4,7 @@ requireAuth();
 
 $pageTitle = "Task | Time Tracker";
 $page = "task";
+$user = getAuthenticatedUser();
 
 if (request()->get('id')) {
     list($task_id, $task, $status) = getTask(request()->get('id'));
@@ -42,6 +43,7 @@ include 'inc/header.php';
                 } else {
                     echo "<input type='hidden' name='status' value='0' />";
                     echo "<input type='hidden' name='action' value='add' />";
+                    echo "<input type='hidden' name='owner_id' value='" . $user['user_id'] . "' />";
                 }
                 ?>
                 <input class="button button--primary button--topic-php" type="submit" value="Submit" />
