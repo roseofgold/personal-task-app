@@ -1,11 +1,13 @@
 <?php
 //task functions
 
-function getTasks($where = null)
+function getTasks($user_id, $where = null)
 {
     global $db;
-    $query = "SELECT * FROM tasks ";
-    if (!empty($where)) $query .= "WHERE $where";
+
+    $query = "SELECT * FROM tasks";
+    $query .= " WHERE owner_id = $user_id";
+    if (!empty($where)) $query .= " AND $where";
     $query .= " ORDER BY id";
     try {
         $statement = $db->prepare($query);
@@ -17,13 +19,13 @@ function getTasks($where = null)
     }
     return $tasks;
 }
-function getIncompleteTasks()
+function getIncompleteTasks($user_id)
 {
-    return getTasks('status=0');
+    return getTasks($user_id,'status=0');
 }
-function getCompleteTasks()
+function getCompleteTasks($user_id)
 {
-    return getTasks('status=1');
+    return getTasks($user_id,'status=1');
 }
 function getTask($task_id)
 {

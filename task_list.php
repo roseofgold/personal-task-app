@@ -4,20 +4,20 @@ requireAuth();
 
 $pageTitle = "Task List | Time Tracker";
 $page = "tasks";
+$user = getAuthenticatedUser();
 
 $filter = request()->get('filter');
 if ($filter=='all') {
-    $tasks = getTasks();
+    $tasks = getTasks($user['user_id']);
 } elseif ($filter=='complete') {
-    $tasks = getCompleteTasks();
+    $tasks = getCompleteTasks($user['user_id']);
 } else {
     $filter = 'incomplete';
-    $tasks = getIncompleteTasks();
+    $tasks = getIncompleteTasks($user['user_id']);
 }
 
 include 'inc/header.php';
 ?>
-
     <div class="col-container page-container">
         <div class="col col-70-md col-60-lg col-center">
 
