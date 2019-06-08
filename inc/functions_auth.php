@@ -11,6 +11,7 @@ function saveUserSession($user)
     $session->set('auth_logged_in',true);
     $session->set('auth_user_id',(int) $user['id']);
     $session->set('auth_roles',(int) $user['role_id']);
+    $session->set('auth_username', $user['username']);
 
     $session->getFlashBag()->add('success', 'Successfully Logged In');
 }
@@ -21,4 +22,10 @@ function requireAuth() {
         $session->getFlashBag()->add('error','Not Authorized');
         redirect('/login.php');
     }
+}
+
+function getAuthenticatedUser()
+{
+    global $session;
+    return findUserByUsername($session->get('auth_username'));
 }

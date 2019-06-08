@@ -8,7 +8,7 @@
 - [ ] User information secutes with a JWT (bonus)
 - [x] Users are able to log out
 - [ ] JWT is made inaccessible
-- [ ] Password is updated
+- [x] Password is updated
 - [ ] New Tasks assigned to the appropriate user
 - [ ] Users can only see their own tasks
 - [ ] Authentication is required on specific pages

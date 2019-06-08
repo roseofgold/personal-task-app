@@ -69,7 +69,7 @@ function updatePassword($password, $userId)
     global $db;
 
     try {
-        $query = 'UPDATE users SET password = :password WHERE id = :userId';
+        $query = 'UPDATE users SET password = :password WHERE username = :userId';
         $stmt = $db->prepare($query);
         $stmt->bindParam(':password', $password);
         $stmt->bindParam(':userId', $userId);
