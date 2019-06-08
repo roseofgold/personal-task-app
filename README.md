@@ -11,9 +11,9 @@
 - [x] Password is updated
 - [ ] New Tasks assigned to the appropriate user
 - [ ] Users can only see their own tasks
-- [ ] Authentication is required on specific pages
-    - [ ] task_list.php
-    - [ ] task.php
+- [x] Authentication is required on specific pages
+    - [x] task_list.php
+    - [x] task.php
 
 ## Technologies Used
 * CSS
