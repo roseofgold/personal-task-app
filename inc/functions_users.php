@@ -2,6 +2,8 @@
 /*
  * Functions to interface with `user` table
  */
+
+ // retrieve all users
 function getAllUsers()
 {
     global $db;
@@ -16,6 +18,7 @@ function getAllUsers()
     }
 }
 
+// retrieve user information based on username
 function findUserByUsername($username)
 {
     global $db;
@@ -32,6 +35,7 @@ function findUserByUsername($username)
     }
 }
 
+// retrieve user infomation based on user ID
 function findUserById($userId)
 {
     global $db;
@@ -48,6 +52,7 @@ function findUserById($userId)
     }
 }
 
+// create a new user. Role auto set to '2' General User
 function createUser($username, $password)
 {
     global $db;
@@ -64,6 +69,7 @@ function createUser($username, $password)
     }
 }
 
+// Update user password
 function updatePassword($password, $userId)
 {
     global $db;
@@ -86,6 +92,7 @@ function updatePassword($password, $userId)
     return true;
 }
 
+// Change role of user
 function changeRole($userId, $roleId)
 {
     global $db;

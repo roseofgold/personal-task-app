@@ -1,6 +1,7 @@
 <?php
 //task functions
 
+// retrieve all tasks for specified user with optional completion status
 function getTasks($user_id, $where = null)
 {
     global $db;
@@ -19,14 +20,20 @@ function getTasks($user_id, $where = null)
     }
     return $tasks;
 }
+
+// retrieve all incomplete tasks for specified user
 function getIncompleteTasks($user_id)
 {
     return getTasks($user_id,'status=0');
 }
+
+// retrieve all complete tasks for specified user
 function getCompleteTasks($user_id)
 {
     return getTasks($user_id,'status=1');
 }
+
+// display specific task
 function getTask($task_id)
 {
     global $db;
@@ -42,6 +49,8 @@ function getTask($task_id)
     }
     return $task;
 }
+
+// create new task associated with signed in user
 function createTask($data)
 {
     global $db;
@@ -58,6 +67,8 @@ function createTask($data)
     }
     return getTask($db->lastInsertId());
 }
+
+// update task with new information
 function updateTask($data)
 {
     global $db;
@@ -75,6 +86,8 @@ function updateTask($data)
     }
     return getTask($data['task_id']);
 }
+
+// update task status (complete or incomplete)
 function updateStatus($data)
 {
     global $db;
@@ -91,6 +104,8 @@ function updateStatus($data)
     }
     return getTask($data['task_id']);
 }
+
+// remove task from list
 function deleteTask($task_id)
 {
     global $db;
