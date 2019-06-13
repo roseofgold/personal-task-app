@@ -22,6 +22,6 @@ if(!empty($user)){
 // hash password and save new user to db
 $hashed = password_hash($password, PASSWORD_DEFAULT);
 $user = createUser($username,$hashed);
-saveUserSession($user);
+saveUserData($user);
 $session->getFlashBag()->add('success','User Added');
 redirect('/');

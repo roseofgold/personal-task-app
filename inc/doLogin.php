@@ -19,5 +19,5 @@ if (!password_verify(request()->get('password'),$user['password']))
 }
 
 // save user auth to session
-saveUserSession($user);
+saveUserData($user);
 redirect('/');

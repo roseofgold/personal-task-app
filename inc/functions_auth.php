@@ -8,7 +8,7 @@ function isAuthenticated()
 }
 
 // save auth info to a session
-function saveUserSession($user)
+function saveUserData($user)
 {
     global $session;
     $session->set('auth_logged_in',true);
