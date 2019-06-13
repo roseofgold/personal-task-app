@@ -41,7 +41,7 @@ include 'inc/header.php';
                         <?php
                         foreach ($tasks as $item) {
                             echo "<tr><td>";
-                            echo "<input type='checkbox' onChange='javascript:location=\"inc/actions_tasks.php?action=status&task_id=".$item['id'];
+                            echo "<input type='checkbox' onChange='javascript:location=\"inc/actions_tasks.php?action=status&task_id=".$item['task_id'];
                             if (!empty($filter)) {
                                 echo "&filter=$filter";
                             }
@@ -53,10 +53,10 @@ include 'inc/header.php';
                             echo " />";
                             echo "</td><td width='100%'>";
 
-                            echo "<a href='task.php?id=" . $item['id'] . "'>" . $item['task'] . "</a>";
+                            echo "<a href='task.php?id=" . $item['task_id'] . "'>" . $item['task'] . "</a>";
                             echo "</td><td>";
 
-                            echo "<a href='inc/actions_tasks.php?action=delete&task_id=".$item['id'];
+                            echo "<a href='inc/actions_tasks.php?action=delete&task_id=".$item['task_id'];
                             echo "' onclick=\"return confirm('Are you sure you want tot delete this task?');\"";
                             echo "'>Delete</a>";
                             echo "</td></tr>\n";

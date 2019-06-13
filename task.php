@@ -5,9 +5,11 @@ requireAuth();
 $pageTitle = "Task | Time Tracker";
 $page = "task";
 $user = getAuthenticatedUser();
+$task_id = '';
 
 if (request()->get('id')) {
-    list($task_id, $task, $status) = getTask(request()->get('id'));
+    $task = getTask(request()->get('id'));
+    $task_id = $task['task_id'];
 }
 
 include 'inc/header.php';
@@ -32,18 +34,18 @@ include 'inc/header.php';
                 <table>
                     <tr>
                         <th><label for="task">Task<span class="required">*</span></label></th>
-                        <td><input type="text" id="task" name="task" value="<?php echo htmlspecialchars($task); ?>" /></td>
+                        <td><input type="text" id="task" name="task" value="<?php echo htmlspecialchars($task['task']); ?>" /></td>
                     </tr>
                    </table>
                 <?php
                 if (!empty($task_id)) {
                     echo "<input type='hidden' name='action' value='update' />";
                     echo "<input type='hidden' name='task_id' value='$task_id' />";
-                    echo "<input type='hidden' name='status' value='$status' />";
+                    echo "<input type='hidden' name='status' value='" . $task['status'] . "' />";
                 } else {
                     echo "<input type='hidden' name='status' value='0' />";
                     echo "<input type='hidden' name='action' value='add' />";
-                    echo "<input type='hidden' name='owner_id' value='" . $user['user_id'] . "' />";
+                    echo "<input type='hidden' name='user_id' value='" . $user['user_id'] . "' />";
                 }
                 ?>
                 <input class="button button--primary button--topic-php" type="submit" value="Submit" />
