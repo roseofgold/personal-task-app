@@ -41,7 +41,7 @@ function findUserById($userId)
     global $db;
 
     try {
-        $query = "SELECT * FROM users WHERE id = :userId";
+        $query = "SELECT * FROM users WHERE user_id = :userId";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':userId', $userId);
         $stmt->execute();
@@ -98,7 +98,7 @@ function changeRole($userId, $roleId)
     global $db;
 
     try {
-        $query = "UPDATE users SET role_id = :roleId WHERE id = :userId";
+        $query = "UPDATE users SET role_id = :roleId WHERE user_id = :userId";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':roleId', $roleId);
         $stmt->bindParam(':userId', $userId);
