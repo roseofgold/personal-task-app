@@ -5,7 +5,7 @@ $action = request()->get('action');
 $task_id = request()->get('task_id');
 $task = request()->get('task');
 $status = request()->get('status');
-$owner_id = request()->get('owner_id');
+$user_id = request()->get('user_id');
 
 $url="../task_list.php";
 if (request()->get('filter')) {
@@ -18,9 +18,10 @@ case "add":
         $session->getFlashBag()->add('error', 'Please enter a task');
         redirect('/task.php');
     } else {
-        if (createTask(['task'=>$task, 'status'=>$status, 'owner_id'=>$owner_id])) {
-            $session->getFlashBag()->add('success', 'New Task Added for '. $owner_id);
+        if (createTask(['task'=>$task, 'status'=>$status, 'user_id'=>$user_id])) {
+            $session->getFlashBag()->add('success', 'New Task Added for '. $user_id);
         }
+        $session->getFlashBag()->add('error', 'Task Not Added');
     }
     break;
 case "update":
