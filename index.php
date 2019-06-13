@@ -12,6 +12,7 @@ include 'inc/header.php';
       <p class="actions-copy">What would you like to do today?</p>
       <div class="actions-wrapper">
         <ul class="actions">
+        <?php if (isAuthenticated()) : ?>
             <li class="actions-item">
                 <a class="actions-link" href="task_list.php">
               <span class="actions-icon">
@@ -28,12 +29,17 @@ include 'inc/header.php';
               Add Task
             </a>
           </li>
+          <?php else : ?>
           <li class="actions-item">
             <a class="actions-link" href="register.php">
               <span class="actions-icon">
                 <svg viewbox="0 0 64 64"><use xlink:href="#user_icon"></use></svg>
               </span>
                 Register
+            </a>
+          </li>
+<?php endif; ?>
+        </ul>
 		</div>
 
 <?php include("inc/footer.php"); ?>
